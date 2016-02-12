@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  # before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
@@ -36,6 +37,20 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def join
+    @event = Event.find(params[:id])
+    @user = current_user
+    @event.users << @user
+    @user.events << @event
+    @event.workers -= 1
+    @event.save
+    if @user.save
+    redirect_to @event
+    else
+    redirect_to @user
+    end 
   end
 
   # PATCH/PUT /events/1

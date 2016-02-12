@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  post "/join/:id" => "events#join", as: 'follow'
   devise_for :users
+  resources :join_events, only: [:create]
   resources :events
-  post 'join' => 'join_events#create'
+  
   root to: "events#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
