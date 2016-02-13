@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :workers %><br>
-    <%= f.number_field :workers %>
-  </div>
+ 
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -25,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :event_date %><br>
-    <%= f.date_field :date %>
+    <%= f.date_field :date, min: Date.today  %>
   </div>
    <div class="field">
     <%= f.label :event_start %><br>
@@ -34,6 +31,10 @@
   <div class="field">
     <%= f.label :event_end %><br>
     <%= f.time_field :time_end %>
+  </div>
+   <div class="field">
+    <%= f.label :workers %><br>
+    <%= f.number_field :workers %>
   </div>
   <div class="actions">
     <%= f.submit %>

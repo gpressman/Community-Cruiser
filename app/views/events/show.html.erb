@@ -19,6 +19,14 @@
   <strong>Date:</strong>
   <%= @event.date %>
 </p>
+<p>
+  <strong>From:</strong>
+  <%= @event.time_start.strftime("%l:%M%p") %>
+</p>
+<p>
+  <strong>To:</strong>
+  <%= @event.time_end.strftime("%l:%M%p") %>
+</p>
 <% if @event.users %>
   <% @users.each do |user| %>
     <ol>
