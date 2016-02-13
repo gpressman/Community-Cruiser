@@ -17,16 +17,13 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @event.date %>
+  <%= @event.date.strftime("%B %-b") %>
 </p>
 <p>
   <strong>From:</strong>
-  <%= @event.time_start.strftime("%l:%M%p") %>
+  <%= @event.time_start.strftime("%l:%M%p") %>-<%= @event.time_end.strftime("%l:%M%p") %>
 </p>
-<p>
-  <strong>To:</strong>
-  <%= @event.time_end.strftime("%l:%M%p") %>
-</p>
+<p>  <strong>Workers:</strong>
 <% if @event.users %>
   <% @users.each do |user| %>
     <ol>
@@ -37,7 +34,7 @@
     <% if @event.users.exclude? current_user %>
 	  <%= join_button %>
 	<% end %>
-
+</p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

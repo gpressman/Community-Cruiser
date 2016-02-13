@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post "/join/:id" => "join_events#create", as: 'follow'
+  post "/join/:id" => "joins#create", as: 'follow'
   
   resources :users, only: [:show]
   devise_for :users, :path => 'accounts'
