@@ -1,0 +1,9 @@
+<%= @user.email %>
+<% if @user.events %>
+  <% @user.events.each do |event| %>
+  	<ul>
+  	  <%= event.name %>
+  	  <%= event.date %>
+  	</ul>
+  <% end %>
+<% end %>

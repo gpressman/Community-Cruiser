@@ -4,7 +4,6 @@ class JoinEventsController < ApplicationController
   	@event = Event.find(params[:id])
   	@user = current_user
   	@event.users << @user
-  	@user.events << @event
   	@event.workers -= 1
   	@event.save
   	@user.save
