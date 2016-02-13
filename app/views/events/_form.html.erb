@@ -24,8 +24,16 @@
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <%= f.label :event_date %><br>
+    <%= f.date_field :date %>
+  </div>
+   <div class="field">
+    <%= f.label :event_start %><br>
+    <%= f.time_field :time_start %>
+  </div>
+  <div class="field">
+    <%= f.label :event_end %><br>
+    <%= f.time_field :time_end %>
   </div>
   <div class="actions">
     <%= f.submit %>
